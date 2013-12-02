@@ -1,0 +1,15 @@
+
+/* Class = "IBUILabel"; text = "TaskTitle"; ObjectID = "ASd-am-H5R"; */
+"ASd-am-H5R.text" = "TaskTitle";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Parameters"; ObjectID = "YMD-H1-WYk"; */
+"YMD-H1-WYk.headerTitle" = "Parameters";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Task Name"; ObjectID = "dp7-2R-i9k"; */
+"dp7-2R-i9k.headerTitle" = "Task Name";
+
+/* Class = "IBUINavigationItem"; title = "Add Task"; ObjectID = "k0H-Ye-vn8"; */
+"k0H-Ye-vn8.title" = "Add Task";
+
+/* Class = "IBUINavigationItem"; title = "Tasks"; ObjectID = "uuX-b2-wpp"; */
+"uuX-b2-wpp.title" = "Tasks";
