@@ -128,8 +128,14 @@
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-- (void)taskDetailViewControllerDidSave: (SGTaskDetailViewController *)controller
+- (void)taskDetailViewController: (SGTaskDetailViewController *)controller didAddTask:task
 {
+    // # Save the task
+    [self.tasks addObject:task];
+    // # Update the table view
+    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:[self.tasks count]-1 inSection:0];
+    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    // # Dismiss Add Screen
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

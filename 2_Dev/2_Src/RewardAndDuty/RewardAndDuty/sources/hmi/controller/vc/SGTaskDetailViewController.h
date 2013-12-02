@@ -8,19 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
+#import "SGTask.h"
+
+
 @class SGTaskDetailViewController;
 
 
 @protocol SGTaskDetailViewControllerDelegate <NSObject>
  - (void)taskDetailViewControllerDidCancel:(SGTaskDetailViewController *)controller;
- - (void)taskDetailViewControllerDidSave:(SGTaskDetailViewController *)controller;
+- (void)taskDetailViewController:(SGTaskDetailViewController *)controller didAddTask:(SGTask*)task;
 @end
 
 @interface SGTaskDetailViewController : UITableViewController
 @property (strong, nonatomic) IBOutlet UITextField *nameTextField;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *pointsSegmentedControl;
 
 @property (nonatomic, weak) id <SGTaskDetailViewControllerDelegate>
 delegate;
+
 - (IBAction)cancel:(id)sender;
 - (IBAction)done:(id)sender;
 

@@ -15,7 +15,8 @@
 {
     self = [super init];
     if (self) {
-        // Initialization code here.
+        self.name = nil;
+        self.points = 0;
     }
     return self;
 }
