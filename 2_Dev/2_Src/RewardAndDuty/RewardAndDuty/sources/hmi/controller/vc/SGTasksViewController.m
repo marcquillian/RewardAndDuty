@@ -36,6 +36,16 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    // # Extract all task from CoreData
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"SGTask" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSError *error;
+    NSArray *persistedTasks = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    self.tasks = [[NSMutableArray alloc] initWithArray:persistedTasks];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -128,10 +138,22 @@
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-- (void)taskDetailViewController: (SGTaskDetailViewController *)controller didAddTask:task
+- (void)taskDetailViewControllerDidAddTask: (SGTaskDetailViewController *)controller
 {
+    
+    // # Init the Task
+    NSString* taskName = controller.nameTextField.text;
+    int taskPoints = controller.pointsSegmentedControl.selectedSegmentIndex;
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"SGTask" inManagedObjectContext: self.managedObjectContext];
+    SGTask* task = [[SGTask alloc] initWithEntity:entity insertIntoManagedObjectContext:self.managedObjectContext];
+
+    task.name = taskName;
+    task.points = [NSNumber numberWithInt:taskPoints];
+    
     // # Save the task
     [self.tasks addObject:task];
+    
     // # Update the table view
     NSIndexPath* indexPath = [NSIndexPath indexPathForRow:[self.tasks count]-1 inSection:0];
     [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];

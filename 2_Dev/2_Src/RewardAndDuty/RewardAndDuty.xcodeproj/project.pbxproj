@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9795B329184E769B006383F3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9795B328184E769B006383F3 /* CoreData.framework */; };
+		9795B32C184E7801006383F3 /* RewardAndDuty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9795B32A184E7801006383F3 /* RewardAndDuty.xcdatamodeld */; };
 		97ADAEF4184D1BA6003E1ADD /* SGTaskTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 97ADAEF3184D1BA6003E1ADD /* SGTaskTest.m */; };
+		97C8C1FE184E99510077966D /* SGTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C8C1FD184E99510077966D /* SGTask.m */; };
 		97F9E940184BC7B700B5149F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97F9E93F184BC7B700B5149F /* Foundation.framework */; };
 		97F9E942184BC7B700B5149F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97F9E941184BC7B700B5149F /* CoreGraphics.framework */; };
 		97F9E944184BC7B700B5149F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97F9E943184BC7B700B5149F /* UIKit.framework */; };
@@ -23,7 +26,6 @@
 		97F9E969184BC7B700B5149F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 97F9E967184BC7B700B5149F /* InfoPlist.strings */; };
 		97F9E985184BCC9B00B5149F /* SGTasksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97F9E984184BCC9B00B5149F /* SGTasksViewController.m */; };
 		97F9E986184BCC9B00B5149F /* SGTasksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97F9E984184BCC9B00B5149F /* SGTasksViewController.m */; };
-		97F9E98A184BCD4D00B5149F /* SGTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 97F9E989184BCD4D00B5149F /* SGTask.m */; };
 		97F9E98E184BDA8400B5149F /* SGTaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 97F9E98D184BDA8400B5149F /* SGTaskCell.m */; };
 		97F9E991184BE5DC00B5149F /* SGTaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97F9E990184BE5DC00B5149F /* SGTaskDetailViewController.m */; };
 /* End PBXBuildFile section */
@@ -39,7 +41,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9795B328184E769B006383F3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		9795B32B184E7801006383F3 /* RewardAndDuty.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RewardAndDuty.xcdatamodel; sourceTree = "<group>"; };
 		97ADAEF3184D1BA6003E1ADD /* SGTaskTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGTaskTest.m; sourceTree = "<group>"; };
+		97C8C1FC184E99510077966D /* SGTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGTask.h; sourceTree = "<group>"; };
+		97C8C1FD184E99510077966D /* SGTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGTask.m; sourceTree = "<group>"; };
 		97F9E93C184BC7B700B5149F /* RewardAndDuty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RewardAndDuty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97F9E93F184BC7B700B5149F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		97F9E941184BC7B700B5149F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -60,8 +66,6 @@
 		97F9E968184BC7B700B5149F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		97F9E983184BCC9B00B5149F /* SGTasksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGTasksViewController.h; sourceTree = "<group>"; };
 		97F9E984184BCC9B00B5149F /* SGTasksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGTasksViewController.m; sourceTree = "<group>"; };
-		97F9E988184BCD4D00B5149F /* SGTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGTask.h; sourceTree = "<group>"; };
-		97F9E989184BCD4D00B5149F /* SGTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGTask.m; sourceTree = "<group>"; };
 		97F9E98C184BDA8400B5149F /* SGTaskCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGTaskCell.h; sourceTree = "<group>"; };
 		97F9E98D184BDA8400B5149F /* SGTaskCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGTaskCell.m; sourceTree = "<group>"; };
 		97F9E98F184BE5DC00B5149F /* SGTaskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGTaskDetailViewController.h; sourceTree = "<group>"; };
@@ -74,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9795B329184E769B006383F3 /* CoreData.framework in Frameworks */,
 				97F9E942184BC7B700B5149F /* CoreGraphics.framework in Frameworks */,
 				97F9E944184BC7B700B5149F /* UIKit.framework in Frameworks */,
 				97F9E940184BC7B700B5149F /* Foundation.framework in Frameworks */,
@@ -139,6 +144,7 @@
 		97F9E93E184BC7B700B5149F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9795B328184E769B006383F3 /* CoreData.framework */,
 				97F9E93F184BC7B700B5149F /* Foundation.framework */,
 				97F9E941184BC7B700B5149F /* CoreGraphics.framework */,
 				97F9E943184BC7B700B5149F /* UIKit.framework */,
@@ -303,8 +309,9 @@
 		97F9E987184BCD3B00B5149F /* model */ = {
 			isa = PBXGroup;
 			children = (
-				97F9E988184BCD4D00B5149F /* SGTask.h */,
-				97F9E989184BCD4D00B5149F /* SGTask.m */,
+				9795B32A184E7801006383F3 /* RewardAndDuty.xcdatamodeld */,
+				97C8C1FC184E99510077966D /* SGTask.h */,
+				97C8C1FD184E99510077966D /* SGTask.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -416,11 +423,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97C8C1FE184E99510077966D /* SGTask.m in Sources */,
+				9795B32C184E7801006383F3 /* RewardAndDuty.xcdatamodeld in Sources */,
 				97F9E950184BC7B700B5149F /* SGAppDelegate.m in Sources */,
 				97F9E985184BCC9B00B5149F /* SGTasksViewController.m in Sources */,
 				97F9E991184BE5DC00B5149F /* SGTaskDetailViewController.m in Sources */,
 				97F9E98E184BDA8400B5149F /* SGTaskCell.m in Sources */,
-				97F9E98A184BCD4D00B5149F /* SGTask.m in Sources */,
 				97F9E956184BC7B700B5149F /* SGViewController.m in Sources */,
 				97F9E94C184BC7B700B5149F /* main.m in Sources */,
 			);
@@ -646,6 +654,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9795B32A184E7801006383F3 /* RewardAndDuty.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9795B32B184E7801006383F3 /* RewardAndDuty.xcdatamodel */,
+			);
+			currentVersion = 9795B32B184E7801006383F3 /* RewardAndDuty.xcdatamodel */;
+			path = RewardAndDuty.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 97F9E934184BC7B700B5149F /* Project object */;
 }

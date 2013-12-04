@@ -111,13 +111,16 @@
     [self.delegate taskDetailViewControllerDidCancel:self];
 }
 - (IBAction)done:(id)sender {
+
+    @try {
     
-    // # Init the Task
-    NSString* taskName = self.nameTextField.text;
-    int taskPoints = self.pointsSegmentedControl.selectedSegmentIndex;
-    SGTask* task = [[SGTask alloc] initWithName:taskName andPoints:taskPoints];
+       
+        [self.delegate taskDetailViewControllerDidAddTask:self];
+        
+    } @catch (NSException* exception) {
+        NSLog(@"Exception occured");
+    }
     
-    [self.delegate taskDetailViewController:self didAddTask:task];
 }
 
 @end

@@ -16,7 +16,7 @@
 
 @protocol SGTaskDetailViewControllerDelegate <NSObject>
  - (void)taskDetailViewControllerDidCancel:(SGTaskDetailViewController *)controller;
-- (void)taskDetailViewController:(SGTaskDetailViewController *)controller didAddTask:(SGTask*)task;
+- (void)taskDetailViewControllerDidAddTask:(SGTaskDetailViewController *)controller;
 @end
 
 @interface SGTaskDetailViewController : UITableViewController

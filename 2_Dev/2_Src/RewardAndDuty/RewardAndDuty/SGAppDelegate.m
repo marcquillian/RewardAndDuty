@@ -13,23 +13,95 @@
 
 @implementation SGAppDelegate
 
+@synthesize managedObjectContext = _managedObjectContext;
+@synthesize managedObjectModel = _managedObjectModel;
+@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+
+#pragma mark - Core Data specific code
+
+- (NSManagedObjectContext *) managedObjectContext {
+    if (_managedObjectContext != nil) {
+        return _managedObjectContext;
+    }
+    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+    if (coordinator != nil) {
+        _managedObjectContext = [[NSManagedObjectContext alloc] init];
+        [_managedObjectContext setPersistentStoreCoordinator: coordinator];
+    }
+    
+    return _managedObjectContext;
+}
+
+- (NSManagedObjectModel *)managedObjectModel {
+    if (_managedObjectModel != nil) {
+        return _managedObjectModel;
+    }
+    _managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
+    
+    return _managedObjectModel;
+}
+
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
+    if (_persistentStoreCoordinator != nil) {
+        return _persistentStoreCoordinator;
+    }
+    NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory]
+                                               stringByAppendingPathComponent: @"RewardAndDuty.sqlite"]];
+    NSError *error = nil;
+    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc]
+                                   initWithManagedObjectModel:[self managedObjectModel]];
+    if(![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
+                                                  configuration:nil URL:storeUrl options:nil error:&error]) {
+        /*Error for store creation should be handled in here*/
+    }
+    
+    return _persistentStoreCoordinator;
+}
+
+- (NSString *)applicationDocumentsDirectory {
+    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+}
+
+#pragma mark - App Delegate method
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 
-    // # Create a list of task for test
-    // @TODO Remove this list once persistence is available
-    self.tasks = [NSMutableArray arrayWithCapacity:20];
-    for (int i=0;i<5;i++) {
-        SGTask *task = [[SGTask alloc] init];
-        task.name = [NSString stringWithFormat:@"Task %d", i];
-        [self.tasks addObject:task];
-    }
+    // # Initialisation of CoreData context
+    NSError *error;
+    NSManagedObjectContext *context = [self managedObjectContext];
     
+    /*
+    SGTask *task = [NSEntityDescription
+                                       insertNewObjectForEntityForName:@"SGTask"
+                                       inManagedObjectContext:context];
+    task.name = @"Test Task 3";
+    task.points = @2;
+    if (![context save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+*/
+
+
+    
+    self.tasks = [[NSMutableArray alloc] init];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"SGTask" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    for (SGTask *t in fetchedObjects) {
+        NSLog(@"Name: %@", t.name);
+        NSLog(@"Points: %d", [t.points integerValue]);
+        [self.tasks addObject:t];
+    }
 
     UINavigationController *navigationController = (UINavigationController*) self.window.rootViewController;
     SGTasksViewController *tasksViewController = [[navigationController viewControllers] objectAtIndex:0];
     tasksViewController.tasks = self.tasks;
     
+    // # Give the CoreData context to View controller
+    tasksViewController.managedObjectContext = self.managedObjectContext;
     
     return YES;
 }

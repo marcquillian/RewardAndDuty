@@ -16,4 +16,7 @@
 /** List of tasks to display */
 @property (strong, nonatomic) NSMutableArray* tasks;
 
+@property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
+
+
 @end
