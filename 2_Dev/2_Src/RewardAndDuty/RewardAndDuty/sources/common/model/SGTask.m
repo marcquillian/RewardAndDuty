@@ -20,7 +20,7 @@
     NSMutableString *description = [[NSMutableString alloc] init];
     [description appendString:@"--- Task Model ---\n"];
     [description appendFormat:@"name: %@\n", self.name];
-    [description appendFormat:@"points: %d\n", [self.points integerValue]];
+    [description appendFormat:@"points: %d\n", (int) [self.points integerValue]];
     
     return description;
 }

@@ -63,7 +63,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    int nbTasks = [self.tasks count];
+    long nbTasks = [self.tasks count];
     return nbTasks;
 }
 
@@ -110,14 +110,14 @@
 }
 */
 
-/*
+
 // Override to support conditional rearranging of the table view.
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the item to be re-orderable.
     return YES;
 }
-*/
+
 
 
 #pragma mark - Navigation
@@ -143,7 +143,7 @@
     
     // # Init the Task
     NSString* taskName = controller.nameTextField.text;
-    int taskPoints = controller.pointsSegmentedControl.selectedSegmentIndex;
+    long taskPoints = controller.pointsSegmentedControl.selectedSegmentIndex;
     
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"SGTask" inManagedObjectContext: self.managedObjectContext];
     SGTask* task = [[SGTask alloc] initWithEntity:entity insertIntoManagedObjectContext:self.managedObjectContext];

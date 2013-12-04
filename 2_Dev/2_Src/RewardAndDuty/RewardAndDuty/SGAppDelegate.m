@@ -92,7 +92,7 @@
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     for (SGTask *t in fetchedObjects) {
         NSLog(@"Name: %@", t.name);
-        NSLog(@"Points: %d", [t.points integerValue]);
+        NSLog(@"Points: %d", (long) [t.points integerValue]);
         [self.tasks addObject:t];
     }
 
