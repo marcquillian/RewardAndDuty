@@ -154,6 +154,12 @@
     // # Save the task
     [self.tasks addObject:task];
     
+    // # Persist the task
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Couldn't save: %@", [error localizedDescription]);
+    }
+    
     // # Update the table view
     NSIndexPath* indexPath = [NSIndexPath indexPathForRow:[self.tasks count]-1 inSection:0];
     [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
